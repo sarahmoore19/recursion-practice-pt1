@@ -9,15 +9,12 @@ sumArray([1, 2, 3]); //  6
 sumArray([0, 1, -3]); //  -2
 sumArray([1, 2, 3, 4, 5]); // 15
 ***********************************************************************/
-
-function sumArray(arr) {
-  if (arr.length === 1) return arr[0];
- else {
- arr[0] = arr[0] + arr[arr.length - 1];
- arr.pop();
- return sumArray(arr)
- }
+let sumArray = (arr, count = 0) => {
+  if (arr.length === 0) return count;
+  count+= arr[0];
+  return sumArray(arr.slice(1), count);
 }
+
 
 console.log(sumArray([1, 2, 3])); //  6
 console.log(sumArray([0, 1, -3])); //  -2
